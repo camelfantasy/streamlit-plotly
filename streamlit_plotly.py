@@ -21,7 +21,7 @@ end =  dt.date.today()
 #end='2023-2-23'
 
 # set ticker's symbol in yahoo stock
-ticker='2330.TW'
+ticker='NVDA'
 
 # Downloading data
 
@@ -35,8 +35,8 @@ df['bb_lower'] = pandas_ta.bbands(close=df['Adj Close'],length=20).iloc[:,0]
 df['bb_upper'] = pandas_ta.bbands(close=df['Adj Close'],length=20).iloc[:,2]
 df['forward_1d'] = df['Adj Close'].pct_change(1).shift(-1)
 
-fig=ex.line(df, x=df.index, y=['Adj Close','bb_lower','bb_upper'], title='台積電 (2330.TW) Adj Close with Bollinger Bands')
-fig.update_layout(title_text=f'台積電 (2330.TW) Adj Close with Bollinger Bands', title_x=0.5);
+fig=ex.line(df, x=df.index, y=['Adj Close','bb_lower','bb_upper'], title='NVDA Adj Close with Bollinger Bands')
+fig.update_layout(title_text=f'NVDA Adj Close with Bollinger Bands', title_x=0.5);
 
 # Plot!
 st.plotly_chart(fig, use_container_width=True)
